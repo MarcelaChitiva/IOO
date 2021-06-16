@@ -1,0 +1,10 @@
+Cami;1180
+Martin;1080
+Camila;1000
+Pedro;920
+Emilio;920
+Jose;720
+Juan;480
+Guada;470
+Luis;470
+Sol;450
