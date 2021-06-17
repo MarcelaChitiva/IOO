@@ -16,7 +16,7 @@ public class Ranking{
 	    	Scanner input = new Scanner (new File("src/ranking.txt"));
 	    	while (input.hasNextLine()) {
 	    		String line = input.nextLine();
-	    		line.replace(line, "");
+	    		line.replace(line, ""); // Que hace esto?
 	    		String[] lista = line.split(";");
 	    		Jugador aux = new Jugador(lista[0]);
 	    		aux.actualizarPuntaje(Integer.valueOf(lista[1]));

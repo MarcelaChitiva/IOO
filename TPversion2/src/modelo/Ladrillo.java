@@ -8,11 +8,12 @@ public class Ladrillo {
 	public double tamanoY;
 	public double anchoLadrillo = 60;
 	public double altoLadrillo = 20;
+	public int puntaje = 0
 	public static final int ladrillosEnX = 5;
 	public static final int ladrillosEnY = 5;
 
 
-	public Ladrillo(double x, double y) {
+	public Ladrillo(double x, double y, int puntaje) {
 		this.x = x;
 		this.y = y;
 		destruido = false;

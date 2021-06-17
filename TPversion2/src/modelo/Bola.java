@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.Random;
+import modelo.SistemaJuego.*;
 
 public class Bola {
 
@@ -38,17 +39,20 @@ public class Bola {
 	
 	double izquierda() {
 		return x - widthBola / 2.0;     //ubicacion en x e y
-}
+	}
+
 	double derecha() {
 		return x + widthBola / 2.0;
-}
+	}
+
 	double arriba() {
 		return y - heightBola / 2.0;
-}
+	}
+
 	double abajo() {
 		return y + heightBola / 2.0;
-}	
-	
+	}
+
 	/*AGREGAR CALCULO DE GRADOS SEGUN IMPACTO
 	Los rebotes de la bola cuando tocan un ladrillo y los destruyen se realizan en un ángulo aleatorio entre 85 y 95 grados.
 	Los rebotes de la bola cuando tocan la barra dependen de la porción de la barra sobre la que impactan, si impactan sobre la
@@ -56,10 +60,41 @@ public class Bola {
  de 60 más el ángulo de entrada.
 
 	*/
-	public void moverBola() {     
-		x += velBolaX; // Calcularia el update del movimiento de la bola
-		y += velBolaY;
-		
+
+	public void moverBola() {
+		// x += velBolaX; // Calcularia el update del movimiento de la bola
+		// y += velBolaY;
+
+		double velocidad = calculoDeVel()
+		double proxima_x = x + velBolaX * velocidad
+		double proxima_y = y + velBolaY * velocidad
+
+		SistemaJuego sistema = SistemaJuego.getInstancia()
+		Rebote tipo_rebote = sistema.reboteEnCoordenada(proxima_x, proxima_y, radio)
+
+		// TODO: actualizo la posicion y direccion de la bola
+	    switch (tipo_rebote) {
+            case PARED:
+                break;
+
+            case TECHO:
+                break;
+
+            case LADRILLO:
+                break;
+
+            case BARRA_DERECHA:
+                break;
+
+            case BARRA_IZQUIERDA:
+                break;
+
+            case NINGUNO:
+            	x = proxima_x
+            	y = proxima_y
+            	break;
+        }
+
 //        if (x - radio < 0) {
 //            velBolaX = -velBolaX; 
 //            x = radio; //  vuelve a colocar la bola al borde
@@ -89,13 +124,13 @@ public class Bola {
 //			SistemaJuego.morir();
 //			}	
 		}
-	
+
 	public double calculoReboteX() {
 		double alpha = r.nextInt(95-85) + 85;
 		double dirx = Math.cos(alpha*(Math.PI/180)); // para ver si va derecha o izquierda
 		return dirx;
 	}
-	
+
 	public double calculoReboteY() {
 		Random r = new Random();
 		double alpha = r.nextInt(95-85) + 85;

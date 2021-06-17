@@ -47,7 +47,6 @@ public class Barra{
 	}
 	public void actualizar() {
 		x += velocidad * paso;
-		
 	}
 	
 //	public static Barra getInstancia(){
